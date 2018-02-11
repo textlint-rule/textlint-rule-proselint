@@ -40,6 +40,7 @@ This rule ignore errors on following nodes.
 
 - CodeBlock
 - Code
+- Link
 - Strong
 - Emphasis
 - BlockQuote
@@ -50,6 +51,11 @@ For example, Following text is ok
 ```
 Find `...` in a string.
 ```
+
+## Limitation
+
+[proselint](https://github.com/amperser/proselint "proselint") can not run parallel.
+This rule limit concurrency.
 
 ## Changelog
 

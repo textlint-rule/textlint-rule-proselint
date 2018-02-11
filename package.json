@@ -52,8 +52,8 @@
     "tabWidth": 4
   },
   "dependencies": {
-    "child-process-promise": "^2.2.1",
     "execa": "^0.9.0",
+    "p-limit": "^1.2.0",
     "textlint-rule-helper": "^2.0.0"
   }
 }
