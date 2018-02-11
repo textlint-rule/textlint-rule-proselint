@@ -1,4 +1,4 @@
-# textlint-rule-proselint
+# textlint-rule-proselint [![Build Status](https://travis-ci.org/textlint-rule/textlint-rule-proselint.svg?branch=master)](https://travis-ci.org/textlint-rule/textlint-rule-proselint)
 
 [Proselint](https://github.com/amperser/proselint "proselint") wrapper for textlint.
 
@@ -34,7 +34,6 @@ Via CLI
 textlint --rule proselint README.md
 ```
 
-
 ## Changelog
 
 See [Releases page](https://github.com/textlint-rule/textlint-rule-proselint/releases).
@@ -65,3 +64,7 @@ For bugs and feature requests, [please create an issue](https://github.com/textl
 ## License
 
 MIT © azu
+
+## Related
+
+- [sapegin/proselint: Proselint wrapper with a friendly reporter](https://github.com/sapegin/proselint "sapegin/proselint: Proselint wrapper with a friendly reporter")
