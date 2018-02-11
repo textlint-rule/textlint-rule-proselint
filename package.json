@@ -1,0 +1,58 @@
+{
+  "name": "textlint-rule-proselint",
+  "version": "1.0.0",
+  "description": "Proselint wrapper for textlint.",
+  "keywords": [
+    "textlintrule"
+  ],
+  "homepage": "https://github.com/textlint-rule/textlint-rule-proselint",
+  "bugs": {
+    "url": "https://github.com/textlint-rule/textlint-rule-proselint/issues"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "main": "lib/textlint-rule-proselint.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/textlint-rule/textlint-rule-proselint.git"
+  },
+  "scripts": {
+    "build": "textlint-scripts build",
+    "precommit": "lint-staged",
+    "postcommit": "git reset",
+    "prepublish": "npm run --if-present build",
+    "test": "textlint-scripts test",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "watch": "textlint-scripts build --watch"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.10.2",
+    "textlint-scripts": "^1.4.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": false,
+    "printWidth": 120,
+    "tabWidth": 4
+  },
+  "dependencies": {
+    "child-process-promise": "^2.2.1",
+    "execa": "^0.9.0"
+  }
+}
