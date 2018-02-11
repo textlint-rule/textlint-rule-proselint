@@ -2,4 +2,4 @@ sudo: false
 language: node_js
 node_js: "stable"
 before_install:
-- pip install proselint
+- pip install --user proselint
