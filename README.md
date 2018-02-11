@@ -34,6 +34,23 @@ Via CLI
 textlint --rule proselint README.md
 ```
 
+## Exception
+
+This rule ignore errors on following nodes.
+
+- CodeBlock
+- Code
+- Strong
+- Emphasis
+- BlockQuote
+- Comment
+
+For example, Following text is ok
+
+```
+Find `...` in a string.
+```
+
 ## Changelog
 
 See [Releases page](https://github.com/textlint-rule/textlint-rule-proselint/releases).
