@@ -1,5 +1,5 @@
 {
-  "name": "textlint-rule-proselint",
+  "name": "@textlint-rule/textlint-rule-proselint",
   "version": "1.0.0",
   "description": "Proselint wrapper for textlint.",
   "keywords": [

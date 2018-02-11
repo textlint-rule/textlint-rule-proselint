@@ -6,7 +6,7 @@
 
 Install with [npm](https://www.npmjs.com/) and [pip](https://pip.pypa.io/en/stable/installing/ "pip"):
 
-    npm install textlint-rule-proselint
+    npm install @textlint-rule/textlint-rule-proselint
     pip install proselint
 
 **Requirement**:
@@ -23,7 +23,7 @@ Via `.textlintrc`(Recommended)
 ```json
 {
     "rules": {
-        "proselint": true
+        "@textlint-rule/proselint": true
     }
 }
 ```
@@ -31,7 +31,7 @@ Via `.textlintrc`(Recommended)
 Via CLI
 
 ```
-textlint --rule proselint README.md
+textlint --rule @textlint-rule/proselint README.md
 ```
 
 ## Exception
