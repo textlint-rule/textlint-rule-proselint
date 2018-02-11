@@ -10,6 +10,9 @@ tester.run("proselint", rule, {
     valid: [
         {
             inputPath: path.join(__dirname, "fixtures/good/pass.md")
+        },
+        {
+            inputPath: path.join(__dirname, "fixtures/good/code-is-ignored.md")
         }
     ],
     invalid: [

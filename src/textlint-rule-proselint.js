@@ -1,15 +1,24 @@
 // MIT © 2018 azu
 "use strict";
 const execa = require("execa");
-
+const IgnoreNodeManager = require("textlint-rule-helper").IgnoreNodeManager;
 const report = function(context) {
     const { Syntax, RuleError, fixer, report } = context;
     const filePath = context.getFilePath();
+    const ignoreNodeManager = new IgnoreNodeManager();
     return {
         [Syntax.Document](node) {
             if (!filePath) {
                 return;
             }
+            ignoreNodeManager.ignoreChildrenByTypes(node, [
+                Syntax.CodeBlock,
+                Syntax.Code,
+                Syntax.Strong,
+                Syntax.Emphasis,
+                Syntax.BlockQuote,
+                Syntax.Comment
+            ]);
             return execa("proselint", ["--json", filePath]).catch(error => {
                 if (error.code === "ENOENT") {
                     report(
@@ -32,6 +41,10 @@ More information:
                     return;
                 }
                 json.data.errors.forEach(lintError => {
+                    const index = lintError.start - 1;
+                    if (ignoreNodeManager.isIgnoredIndex(index)) {
+                        return;
+                    }
                     const canFixIt = typeof lintError.replacements === "string";
                     const source = lintError.source_url ? `Source: ${lintError.source_url}` : "";
                     const message = `[${lintError.check}] ${lintError.message}
@@ -41,19 +54,16 @@ ${source}
                         report(
                             node,
                             new RuleError(message, {
-                                index: lintError.start - 1,
+                                index: index,
                                 severity: lintError.severity,
-                                fix: fixer.replaceTextRange(
-                                    [lintError.start - 1, lintError.end - 1],
-                                    lintError.replacements
-                                )
+                                fix: fixer.replaceTextRange([index, lintError.end - 1], lintError.replacements)
                             })
                         );
                     } else {
                         report(
                             node,
                             new RuleError(message, {
-                                index: lintError.start - 1,
+                                index: index,
                                 severity: lintError.severity
                             })
                         );
